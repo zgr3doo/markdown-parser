@@ -1,0 +1,23 @@
+{
+    "name": "zgr3doo/markdown-parser",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Zgr3doo",
+            "email": "zgr3doo@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^3.4",
+        "symfony/framework-bundle": "^3.4",
+        "phpunit/phpunit": "^6.5",
+        "erusev/parsedown": "^1.7",
+        "symfony/finder": "^3.4",
+        "monolog/monolog": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarkdownParser\\": "src/"
+        }
+    }
+}
