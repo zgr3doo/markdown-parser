@@ -80,7 +80,7 @@ class ParserCommand extends ContainerAwareCommand
         if (empty($markdownContents)) {
             $this->logger->error('Error - markdown file not found');
         } else {
-            $this->logger->error('Markdown file loaded');
+            $this->logger->info('Markdown file loaded');
         }
 
         return $markdownContents;
@@ -93,7 +93,8 @@ class ParserCommand extends ContainerAwareCommand
     private function parseMarkdownContent($markdownContent)
     {
         $parsedown = $this->getContainer()->get('parsedown');
-        return $parsedown->text($markdownContent);
+        $htmlContent = $parsedown->text($markdownContent);
+        return sprintf("<html lang=\"eng\"><body>\n%s\n</body></html>", $htmlContent);
     }
 
     private function saveHtmlContent($htmlContent)
@@ -105,7 +106,7 @@ class ParserCommand extends ContainerAwareCommand
         if (!$fileSaved) {
             $this->logger->error('Error - HTML file could not be saved');
         } else {
-            $this->logger->error('HTML file saved');
+            $this->logger->info('HTML file saved');
         }
     }
 
